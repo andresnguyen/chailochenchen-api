@@ -1,14 +1,12 @@
 import siteRoute from './site.route'
-import staffRoute from './staff.route'
-import faqRoute from './faq.route'
+import userRoute from './staff.route'
 import authRoute from './auth.route'
-import categoryRoute from './category.route'
+import productRoute from './product.route'
 
 function route(app) {
     app.use('/auth', authRoute)
-    app.use('/faqs', faqRoute)
-    app.use('/staffs', staffRoute)
-    app.use('/categories', categoryRoute)
+    app.use('/staffs', userRoute)
+    app.use('/categories', productRoute)
     app.use('/', siteRoute)
 }
 
