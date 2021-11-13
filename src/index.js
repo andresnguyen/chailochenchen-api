@@ -31,7 +31,7 @@ route(app)
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
-    next(createError(NOT_FOUND, `Not Found Route!`))
+    next(createError(NOT_FOUND, `Route Not Found!`))
 })
 
 // handle error

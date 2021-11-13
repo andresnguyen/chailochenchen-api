@@ -1,7 +1,7 @@
 import createError from 'http-errors'
 import User from '../models/user.model'
 import { encodePassword } from '../utils/helper'
-import { postStaffValidate, updateStaffValidate } from '../validation/validation'
+import { validateCreateUser, validateUpdateUser } from '../validation/user.validation'
 import { BAD_REQUEST } from '../constants/httpStatusCode.constant'
 
 class UserService {
@@ -28,7 +28,8 @@ class UserService {
     }
 
     async postOne(data) {
-        let user = await postStaffValidate(data)
+        let user = await validateCreateUser(data)
+        console.log(user)
         if (await User.findOne({ email: user.email })) {
             throw createError(BAD_REQUEST, 'Email already exists')
         }
@@ -44,7 +45,7 @@ class UserService {
             throw createError(BAD_REQUEST, 'Nothing valid value to update')
         }
 
-        let user = await updateStaffValidate(data)
+        let user = await validateUpdateUser(data)
         user = await User.findByIdAndUpdate(id, user, { new: true })
         return user
     }

@@ -24,7 +24,7 @@
 		"indent": ["warn", 4],
     "linebreak-style": 0,
     "semi": [1, "never"],
-		"quotes": ["error", "single"],
+		"quotes": ["error", "always"],
     "no-unexpected-multiline": "warn",
     "keyword-spacing": 1,
     "comma-dangle": 1,

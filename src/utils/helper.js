@@ -1,8 +1,8 @@
 import jwt from 'jsonwebtoken'
 import bcrypt from 'bcryptjs'
 
-export const generateAccessToken = (staffId) => {
-    return jwt.sign({ staffId }, process.env.ACCESS_TOKEN_SECRET, {
+export const generateAccessToken = (userId) => {
+    return jwt.sign({ userId }, process.env.ACCESS_TOKEN_SECRET, {
         expiresIn: '2000000s'
     })
 }

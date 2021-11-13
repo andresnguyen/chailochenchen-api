@@ -1,0 +1,3 @@
+export const CLOUDINARY_NAME = 'datzfk3xs'
+export const CLOUDINARY_PUBLIC_KEY = '117266328787281'
+export const CLOUDINARY_SECRET_KEY = '2Ui8jXWYIEvhECzlRfH7x3j6L-g'

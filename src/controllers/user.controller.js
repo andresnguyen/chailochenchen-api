@@ -37,7 +37,7 @@ class UserController {
         }
     }
 
-    async patchOne(req, res, next) {
+    async updateOne(req, res, next) {
         const id = req.params.id
         try {
             const user = await UserService.updateOne(id, req.body)

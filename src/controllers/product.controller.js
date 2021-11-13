@@ -29,19 +29,19 @@ class ProductController {
 
     async postOne(req, res, next) {
         try {
-            const product = await ProductService.postOne(req.body)
+            const product = await ProductService.postOne(req)
             return res.status(OK).json({ ...singleResponse, data: product })
         } catch (error) {
             next(error)
         }
     }
 
-    async patchOne(req, res, next) {
+    async updateOne(req, res, next) {
         const id = req.params.id
         try {
             const product = await ProductService.updateOne(
                 id,
-                req.body
+                req
             )
             return res.status(OK).json({ ...singleResponse, data: product })
         } catch (error) {

@@ -1,9 +1,9 @@
 import createError from 'http-errors'
 import Product from '../models/product.model'
 import {
-    postCategoryValidation,
-    updateCategoryValidation
-} from '../validation/validation'
+    validateCreateProduct,
+    validateUpdateProduct
+} from '../validation/product.validation'
 import { BAD_REQUEST } from '../constants/httpStatusCode.constant'
 
 class ProductService {
@@ -29,15 +29,22 @@ class ProductService {
     }
 
     async postOne(data) {
-        let product = await postCategoryValidation(data)
-        product = await new Product({ ...data }).save()
+        const arg = {...data.body}
+        if(data.file) arg.imageSrc = data.file.path
+
+        let product = await validateCreateProduct(arg)
+        product = await new Product({ ...product }).save()
         return product
     }
 
     async updateOne(id, data) {
-        if (Object.keys(data).length === 0)
+        if (Object.keys(data).length === 0) {
             throw createError(BAD_REQUEST, 'Nothing valid value to update')
-        let product = await updateCategoryValidation(data)
+        }
+        const arg = {...data.body}
+        if(data.file) arg.imageSrc = data.file.path
+
+        let product = await validateUpdateProduct(arg)
         product = await Product.findByIdAndUpdate(id, product, {
             new: true
         })

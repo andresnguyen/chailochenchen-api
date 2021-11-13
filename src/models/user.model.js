@@ -4,33 +4,34 @@ const userSchema = new mongoose.Schema(
     {
         name: {
             type: String,
-            required: true
+            required: true,
         },
         email: {
             type: String,
-            required: true
+            required: true,
         },
         password: {
             type: String,
             select: false,
-            required: true
+            required: true,
         },
         role: {
             type: Number,
-            default: 1
+            default: 1,
         },
         isActive: {
             type: Boolean,
-            default: false
+            default: true,
         },
         isDelete: {
             type: Boolean,
-            default: false
-        }
+            default: false,
+            select: false,
+        },
     },
     {
-        timestamps: true
+        timestamps: true,
     }
 )
 
-export default mongoose.model('User', userSchema, 'Users')
+export default mongoose.model('User', userSchema, 'users')

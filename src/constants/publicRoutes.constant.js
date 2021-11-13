@@ -4,11 +4,7 @@ const publicRoutes = [
         method: 'POST'
     },
     {
-        path: '/faqs',
-        method: 'GET'
-    },
-    {
-        path: '/categories',
+        path: '/products',
         method: 'GET'
     }
 ]

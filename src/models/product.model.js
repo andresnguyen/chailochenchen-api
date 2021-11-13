@@ -29,11 +29,12 @@ const productSchema = new mongoose.Schema(
         },
         isActive: {
             type: Boolean,
-            default: false
+            default: true
         },
         isDelete: {
             type: Boolean,
-            default: false
+            default: false,
+            select: false,
         }
     },
     {

@@ -1,8 +1,6 @@
 import { OK } from '../constants/httpStatusCode.constant'
 import { singleResponse } from '../constants/response.constant'
-import User from '../models/user.model'
 import AuthService from '../services/auth.service'
-import { encodePassword } from '../utils/helper'
 
 class AuthController {
     async logIn(req, res, next) {
