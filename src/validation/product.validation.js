@@ -10,7 +10,7 @@ export const validateCreateProduct = async (product) => {
         shoppeLink: Joi.string().optional().allow('').label('ShoppeLink'),
         facebookLink: Joi.string().optional().allow('').label('Facebook Link'),
         description: Joi.string().label('Description'),
-        isActive: Joi.boolean().label('Active'),
+        isActive: Joi.boolean().label('Active')
     }).unknown()
 
     return schema.validateAsync(product)
