@@ -57,7 +57,7 @@ class ProductService {
     }
 
     async deleteOne(id) {
-        const product = await Product.findById(id)
+        const product = await Product.findByIdAndDelete(id)
         return product
     }
 }
