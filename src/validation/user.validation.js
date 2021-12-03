@@ -24,7 +24,7 @@ export const validateCreateUser = async (user) => {
             .label('Password'),
         isActive: Joi.boolean().label('Active'),
         role: Joi.number().integer().min(1).max(3).label('Role'),
-    })
+    }).unknown()
 
     return schema.validateAsync(user)
 }
@@ -38,7 +38,7 @@ export const validateUpdateUser = async (user) => {
             .label('Name'),
         isActive: Joi.boolean().label('Active'),
         role: Joi.number().integer().min(1).max(3).label('Role'),
-    })
+    }).unknown()
 
     return schema.validateAsync(user)
 }

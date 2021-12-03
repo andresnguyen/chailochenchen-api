@@ -10,7 +10,7 @@ class ProductController {
             return res.status(OK).json({
                 ...pluralResponse,
                 data: products,
-                pagination: { page, limit, count }
+                pagination: { page, limit, count },
             })
         } catch (error) {
             next(error)
@@ -36,13 +36,19 @@ class ProductController {
         }
     }
 
+    async uploadImage(req, res, next) {
+        try {
+            const path = await ProductService.uploadImage(req)
+            return res.status(OK).json({ ...singleResponse, data: { path } })
+        } catch (error) {
+            next(error)
+        }
+    }
+
     async updateOne(req, res, next) {
         const id = req.params.id
         try {
-            const product = await ProductService.updateOne(
-                id,
-                req
-            )
+            const product = await ProductService.updateOne(id, req)
             return res.status(OK).json({ ...singleResponse, data: product })
         } catch (error) {
             next(error)

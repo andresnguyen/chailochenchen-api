@@ -5,8 +5,9 @@ const router = express.Router()
 
 router.get('/', ProductController.getAll)
 router.get('/:id', ProductController.getOne)
-router.post('/', fileUploader.single('file'), ProductController.postOne)
-router.patch('/:id', fileUploader.single('file'), ProductController.updateOne)
+router.post('/', ProductController.postOne)
+router.post('/upload-image', fileUploader.single('file'), ProductController.uploadImage)
+router.patch('/:id', ProductController.updateOne)
 router.delete('/:id', ProductController.deleteOne)
 
 export default router

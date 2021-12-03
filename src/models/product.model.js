@@ -8,9 +8,11 @@ const productSchema = new mongoose.Schema(
         },
         price: {
             type: Number,
-            required: true
         },
         content: {
+            type: String,
+        },
+        category: {
             type: String,
             required: true
         },
@@ -19,6 +21,9 @@ const productSchema = new mongoose.Schema(
             required: true
         },
         shoppeLink: {
+            type: String
+        },
+        facebookLink: {
             type: String
         },
         description: {

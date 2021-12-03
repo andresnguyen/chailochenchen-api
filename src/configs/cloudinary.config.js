@@ -20,7 +20,7 @@ const storage = new CloudinaryStorage({
         cb(null, file.originalname)
     },
     params: async (req, file) => {
-        let folderName = 'chailochenchen-images'
+        let folderName = 'chailochenchen/products'
         let resourceType = 'image'
         return {
             folder: folderName,

@@ -20,8 +20,10 @@ class AuthService {
             throw createError(BAD_REQUEST, 'Password is wrong!')
         }
 
+        delete user._doc.password
+
         const token = generateAccessToken(user._id)
-        return token
+        return { token, user }
     }
 
     async changePassword(data) {

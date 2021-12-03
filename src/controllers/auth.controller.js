@@ -5,8 +5,10 @@ import AuthService from '../services/auth.service'
 class AuthController {
     async logIn(req, res, next) {
         try {
-            const token = await AuthService.logIn(req.body)
-            return res.status(OK).json({ ...singleResponse, data: token })
+            const { token, user } = await AuthService.logIn(req.body)
+            return res
+                .status(OK)
+                .json({ ...singleResponse, data: { token, user } })
         } catch (error) {
             next(error)
         }
