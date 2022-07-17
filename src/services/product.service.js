@@ -16,6 +16,7 @@ class ProductService {
         const products = await Product.find(query)
             .skip(page * limit)
             .limit(limit)
+            .sort({ updatedAt: -1 })
             .lean()
 
         const count = await Product.find(query).count()
